@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MYLIB_H
+#define MYLIB_H
+
 #include <algorithm>
 #include <iomanip>
 #include <iostream>
@@ -30,3 +32,4 @@ using std::istringstream;
 using std::stoi;
 using std::tie;
 
+#endif

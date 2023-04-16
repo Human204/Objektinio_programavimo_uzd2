@@ -196,23 +196,23 @@ void out_failo_sukurimas3(vector<Studentasc> &temp,string tipas,vector<Studentas
   fout<<"-----------------------------------------------\n";
   if(tipas=="based"){
     std::stringstream tekstas;
-    for(;it<temp.end();++it){
+    for(;it<temp.end()-1;++it){
       tekstas=it->output_string();
+      string tekstas2=tekstas.str();
+      fout<<tekstas2<<'\n';
+      tekstas.str(string());tekstas.clear();
     }
-    string tekstas2=tekstas.str();
     tekstas.str(string());tekstas.clear();
-    fout<<tekstas2;
-    tekstas2.clear();
   }
   else if(tipas=="cringe"){
     std::stringstream tekstas;
     it--;
     for(;it>temp.begin();--it){
       tekstas=it->output_string();
+      string tekstas2=tekstas.str();
+      fout<<tekstas2<<'\n';
+      tekstas.str(string());tekstas.clear();
     }
-    string tekstas2=tekstas.str();
     tekstas.str(string());tekstas.clear();
-    fout<<tekstas2;
-    tekstas2.clear();
   }
 }

@@ -2,14 +2,14 @@
 #include "skaiciavimai.h"
 #include "ranka.h"
 #include "failai.h"
-
+#include "studentas.h"
 
 int main(){
     srand(time(NULL));
     int n=1,paz_sk,programos_tipas;
     string tipas,failas_ar_ranka,failas;
     char pabaiga;
-    studentas temp2;
+    Studentasc temp2;
     while(true){
       // cout<<"ar noresite duomenis skaityti is failo ar irasyti ranka? (failas/ranka) ";
       cout<<"1. duomenu irasymas ranka\n2. duomenu skaitymas is failo\n3. failo sukurimas\n";
@@ -19,7 +19,7 @@ int main(){
       if(programos_tipas==1||programos_tipas==2||programos_tipas==3)break;
     }
     std::stringstream eilute;
-    vector <studentas>grupe;
+    vector <Studentasc> grupe;
     grupe.reserve(1000000);
     if(programos_tipas==1){
       while(true){
@@ -60,13 +60,13 @@ int main(){
       for (int i = 0; i < n; i++)
       {
         if(tipas=="vid"){
-          vidurkis(grupe[i]);
-          galutinis(grupe[i],"vid");
+          grupe[i].vidurkis();
+          grupe[i].galutinio_skaiciavimai("vid");
           
         }
         else if(tipas=="med"){
-          mediana(grupe[i]);
-          galutinis(grupe[i],"med");
+          grupe[i].mediana();
+          grupe[i].galutinio_skaiciavimai("med");
         }
         out(grupe[i]);
       }

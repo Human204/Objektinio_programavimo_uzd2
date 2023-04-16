@@ -1,12 +1,12 @@
 #include "MyLib.h"
 #include "skaiciavimai.h"
 #include "failai.h"
-
-void Skaitymas(vector<studentas> &temp,std::stringstream &temp2){
+#include "studentas.h"
+void Skaitymas(vector<Studentasc> &temp,std::stringstream &temp2){
   int tipas;
   cout<<"Kuria strategija naudoti?(1/2/3)";cin>>tipas;
   int temp_paz,l=0;
-  studentas temp3;
+  // Studentasc temp3;
   string check,tp;
   temp2>>check>>check;
   while(true){
@@ -17,19 +17,9 @@ void Skaitymas(vector<studentas> &temp,std::stringstream &temp2){
     } 
   }
   Timer t_failas,t_vis;
-  while(temp2>>temp3.vardas>>temp3.pavarde){
-      for(int i=0;i<l;i++){
-      temp3.paz.reserve(l);
-      temp2>>temp_paz;
-      temp3.paz.push_back(temp_paz);
-      temp_paz=0;
-    }
-    temp2>>temp3.egz;
-    mediana(temp3);
-    vidurkis(temp3);
-    temp3.paz.clear();
-    galutinis(temp3,"failas");
-    temp.push_back(temp3);
+  while(!temp2.eof()){
+      Studentasc temp3(temp2,l);
+      temp.push_back(temp3);
   }
   cout<<"Failo skaitymas uztruko: "<<t_failas.elapsed()<<endl;
   isskaidymas(temp,tipas);
@@ -37,20 +27,14 @@ void Skaitymas(vector<studentas> &temp,std::stringstream &temp2){
   
 }
 
-void outf(vector<studentas> &temp){
+void outf(vector<Studentasc> &temp){
   ofstream fout ("out.txt");
   fout<<left<<setw(15)<<"Vardas"<<setw(15)<<"Pavarde"<<setw(16)<<"Galutinis (Vid.) "<<setw(16)<<"Galutinis (Med.)\n";
   fout<<"---------------------------------------------------------------\n";
     for(int i=0;i<temp.size();i++){
-      // cout<<temp[i].vardas<<endl;
-      fout<<left<<setw(15)<<temp[i].vardas<<setw(15)<<temp[i].pavarde<<setw(16);
-      fout.precision(2);
-      fout<<std::fixed;
-      fout<<temp[i].galutinis;
-      fout<<" "<<setw(16);
-      fout.precision(2);
-      fout<<std::fixed;
-      fout<<temp[i].galutinis2<<'\n';
+      std::stringstream str = temp[i].output_string();
+      string tekstas=str.str();
+      fout<<tekstas;
     }
     
     fout.close();
@@ -93,7 +77,7 @@ void sukurtifaila(int filesize,int ndsk){
   cout<<"Failo kurimas uztruko: "<<t_dal.elapsed()<<endl;
 }
 
-void isskaidymas(vector<studentas> &studentai,int tipas){
+void isskaidymas(vector<Studentasc> &studentai,int tipas){
   bool skaidymo_zenkl=false;
   Timer t_dal;
   if(tipas==2) tipas2(studentai);
@@ -102,10 +86,10 @@ void isskaidymas(vector<studentas> &studentai,int tipas){
     sort(studentai.begin(),studentai.end()-1,palygintigalutiniusalt);
     cout<<"Studentu rikiavimas uztruko: "<<t_dal.elapsed()<<endl;
     t_dal.reset();
-    vector<studentas> cringe,based;
+    vector<Studentasc> cringe,based;
     cringe.reserve(studentai.size()*0.7);based.reserve(studentai.size()*0.7);
-    for(studentas &i : studentai){
-      if(i.galutinis<5){
+    for(Studentasc &i : studentai){
+      if(i.getGal()<5){
         cringe.push_back(i);
       }
       else based.push_back(i);
@@ -123,7 +107,7 @@ void isskaidymas(vector<studentas> &studentai,int tipas){
 
 }
 
-void out_failo_sukurimas(vector<studentas> &temp,string tipas){
+void out_failo_sukurimas(vector<Studentasc> &temp,string tipas){
   string file;
   std::stringstream ss;
   ss<<tipas<<".txt";
@@ -131,24 +115,24 @@ void out_failo_sukurimas(vector<studentas> &temp,string tipas){
   ofstream fout(file);
   fout<<left<<setw(15)<<"Vardas"<<setw(15)<<"Pavarde"<<setw(13)<<"Gal vid\n";
   fout<<"-----------------------------------------------\n";
-  for(studentas i:temp){
-    fout<<setw(15)<<left<<i.vardas<<setw(15)<<left<<i.pavarde;
+  for(Studentasc i:temp){
+    fout<<setw(15)<<left<<i.getVardas()<<setw(15)<<left<<i.getPavarde();
     fout.precision(2);
     fout<<std::fixed;
-    fout<<i.galutinis<<'\n';
+    fout<<i.getGal()<<'\n';
   }
 }
 
-void tipas2(vector <studentas> &studentai){
+void tipas2(vector <Studentasc> &studentai){
   Timer t_dal;
   sort(studentai.begin(),studentai.end()-1,palygintigalutinius);
     cout<<"Studentu rikiavimas uztruko: "<<t_dal.elapsed()<<endl;
     t_dal.reset();
-    vector<studentas> cringe;
+    vector<Studentasc> cringe;
     cringe.reserve(studentai.size()*0.7);
-    vector<studentas>::size_type j = 0;
+    vector<Studentasc>::size_type j = 0;
     for(int i=studentai.size();i>=0;i--){
-      if(studentai[i].galutinis<5){
+      if(studentai[i].getGal()<5){
         cringe.push_back(studentai[i]);
         studentai.pop_back();
       }
@@ -164,15 +148,15 @@ void tipas2(vector <studentas> &studentai){
     studentai.clear();
 }
 
-void tipas3(vector <studentas> &studentai){
+void tipas3(vector <Studentasc> &studentai){
     Timer t_dal;
   sort(studentai.begin(),studentai.end()-1,palygintigalutiniusalt);
-  // vector<studentas>::iterator it=partition(studentai.begin(),studentai.end(),partition);
+  // vector<Studentasc>::iterator it=partition(studentai.begin(),studentai.end(),partition);
     cout<<"Studentu rikiavimas uztruko: "<<t_dal.elapsed()<<endl;
     t_dal.reset();
-    vector<studentas>::size_type j = 0;
-    vector<studentas>::iterator it =find_if(studentai.begin(),studentai.end(),paz_skirst);
-    // vector<studentas> cringe;
+    vector<Studentasc>::size_type j = 0;
+    vector<Studentasc>::iterator it =find_if(studentai.begin(),studentai.end(),paz_skirst);
+    // vector<Studentasc> cringe;
     // int cringe_size=studentai.end()-it-1;
     // int cringe_size=it-studentai.begin()-1;
     // cringe.resize(cringe_size);
@@ -195,14 +179,14 @@ void tipas3(vector <studentas> &studentai){
     studentai.clear();
 
 }
-bool paz_skirst(studentas &temp){
-  return((temp.galutinis==5.0));
+bool paz_skirst(Studentasc &temp){
+  return((temp.getGal()==5.0));
 }
-bool partition(studentas &temp){
-  return(temp.galutinis<5);
+bool partition(Studentasc &temp){
+  return(temp.getGal()<5);
 }
 
-void out_failo_sukurimas3(vector<studentas> &temp,string tipas,vector<studentas>::iterator it){
+void out_failo_sukurimas3(vector<Studentasc> &temp,string tipas,vector<Studentasc>::iterator it){
   string file;
   std::stringstream ss;
   ss<<tipas<<".txt";
@@ -213,10 +197,7 @@ void out_failo_sukurimas3(vector<studentas> &temp,string tipas,vector<studentas>
   if(tipas=="based"){
     std::stringstream tekstas;
     for(;it<temp.end();++it){
-      tekstas<<setw(15)<<left<<it->vardas<<setw(15)<<left<<it->pavarde;
-      tekstas.precision(2);
-      tekstas<<std::fixed;
-      tekstas<<it->galutinis<<'\n';
+      tekstas=it->output_string();
     }
     string tekstas2=tekstas.str();
     tekstas.str(string());tekstas.clear();
@@ -227,10 +208,7 @@ void out_failo_sukurimas3(vector<studentas> &temp,string tipas,vector<studentas>
     std::stringstream tekstas;
     it--;
     for(;it>temp.begin();--it){
-      tekstas<<setw(15)<<left<<it->vardas<<setw(15)<<left<<it->pavarde;
-      tekstas.precision(2);
-      tekstas<<std::fixed;
-      tekstas<<it->galutinis<<'\n';
+      tekstas=it->output_string();
     }
     string tekstas2=tekstas.str();
     tekstas.str(string());tekstas.clear();

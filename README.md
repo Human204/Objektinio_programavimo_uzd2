@@ -16,6 +16,31 @@ Kartu su programa ateina makefile, exe failo sukūrimui įrašykite make, jo pal
 ## Naudojimosi instrukcija
 Paleidus programą gausite pasirinkimą įrašyti studentus bei jų pažymius ranka, nuskaityti juos iš failo, ar sugeneruoti naują atsitiktinų pažymių ir studentų failą testuoti programos greičiui.
 
+## Optimizavimo flag poveikis (10000000 studentų failas)
+
+|                                 | O1        | O2        | O3        |
+|---------------------------------|-----------|-----------|-----------|
+| Duomenų nuskaitymas             | 11.269    | 11.286    | 11.279    |
+| Studentų Rikiavimas             | 3.008     | 2.895     | 2.74103   |
+| Studentų skirstymas į dvi dalis | 0.0369983 | 0.0310036 | 0.0279997 |
+
+## Klasių ir struktūrų greičiai:
+
+* 1000000 studentų failas:
+|Operacijos                       | Struktūra (3s) | Klasė (3s) |
+|---------------------------------|----------------|------------|
+| Duomenų nuskaitymas             |1.173|1.10003|
+| Studentų Rikiavimas             |0.233003|0.206969|
+| Studentų skirstymas į dvi dalis |0.0029969|0.0030342|
+
+
+* 10000000 studentų failas
+
+|Operacijos                       | Struktūra (3s) | Klasė (3s) |
+|---------------------------------|----------------|------------|
+| Duomenų nuskaitymas             |10.726 |11.279|
+| Studentų Rikiavimas             |2.582|2.74103|
+| Studentų skirstymas į dvi dalis |0.0300007|0.0279997|
 
 Pasirinkus rašyti pažymius ranka galėsite pasirinkti galutinį pažymį skaičiuoti su vidurkiu ar mediana ir vėliau įrašyti studentus bei jų pažymius.
 
@@ -74,15 +99,3 @@ RAM naudojimas skaičiuojamas testuojant su failu, kuriame yra 10000000 student�
 | Duomenų nuskaitymas             | 10.8645   | 11.344| - | 14.979    | - | 17.8685   | - |
 | Studentų Rikiavimas             | 2.6655    | 2.973 | 2.582 | 17.2065   | 16.5979 | 8.854     | 8.006 |
 | Studentų skirstymas į dvi dalis | 0.430501  | 0.228001 | 0.0300007 | 65.7495   | 21.7311 | 4.1305    | 1.458 |
-
-## Failų kūrimo greičiai
-* 1000 studentų su 7 namų darbų pažymiais
-![1000 studentų](./screenshotai/v0.4_kurimas/1000_7.png)
-* 10000 studentų su 7 namų darbų pažymiais
-![10000 studentų](./screenshotai/v0.4_kurimas/10000_7.png)
-* 100000 studentų su 7 namų darbų pažymiais
-![100000 studentų](./screenshotai/v0.4_kurimas/100000_7.png)
-* 1000000 studentų su 7 namų darbų pažymiais
-![1000000 studentų](./screenshotai/v0.4_kurimas/1000000_7.png)
-* 10000000 studentų su 7 namų darbų pažymiais
-![10000000 studentų](./screenshotai/v0.4_kurimas/10000000_7.png)

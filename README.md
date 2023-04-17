@@ -27,6 +27,7 @@ Paleidus programą gausite pasirinkimą įrašyti studentus bei jų pažymius ra
 ## Klasių ir struktūrų greičiai:
 
 * 1000000 studentų failas:
+
 |Operacijos                       | Struktūra (3s) | Klasė (3s) |
 |---------------------------------|----------------|------------|
 | Duomenų nuskaitymas             |1.173|1.10003|

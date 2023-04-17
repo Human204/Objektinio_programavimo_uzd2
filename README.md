@@ -16,6 +16,22 @@ Kartu su programa ateina makefile, exe failo sukūrimui įrašykite make, jo pal
 ## Naudojimosi instrukcija
 Paleidus programą gausite pasirinkimą įrašyti studentus bei jų pažymius ranka, nuskaityti juos iš failo, ar sugeneruoti naują atsitiktinų pažymių ir studentų failą testuoti programos greičiui.
 
+Pasirinkus rašyti pažymius ranka galėsite pasirinkti galutinį pažymį skaičiuoti su vidurkiu ar mediana ir vėliau įrašyti studentus bei jų pažymius.
+
+Pasirinkus skaityti pažymius iš failo reikės įrašyti failo pavadinimą ir pasirinkti kokia strategija skaičiuoti.
+
+Pasirinkus kurti failą jūsų prašys failo dydį ir kiek pažymių turi kiekvienas studentas.
+
+## RAM naudojimas
+
+RAM naudojimas skaičiuojamas testuojant su failu, kuriame yra 10000000 studentų su 7 namų darbų pažymiais)
+
+1 Strategija - Saugoti studentams dviejuose naujuose konteineris (naudoja max 3.2 GB RAM)
+
+2 Strategija - Saugoti studentams sukuriamas vienas naujas konteineris (naudoja max 2.6 GB RAM)
+
+3 Strategija - Studentų saugojimui nesukuriamas joks naujas konteineris (naudoja max 2.2 GB RAM) 
+
 ## Optimizavimo flag poveikis (10000000 studentų failas)
 
 |                                 | O1        | O2        | O3        |
@@ -42,22 +58,6 @@ Paleidus programą gausite pasirinkimą įrašyti studentus bei jų pažymius ra
 | Duomenų nuskaitymas             |10.726 |11.279|
 | Studentų Rikiavimas             |2.582|2.74103|
 | Studentų skirstymas į dvi dalis |0.0300007|0.0279997|
-
-Pasirinkus rašyti pažymius ranka galėsite pasirinkti galutinį pažymį skaičiuoti su vidurkiu ar mediana ir vėliau įrašyti studentus bei jų pažymius.
-
-Pasirinkus skaityti pažymius iš failo reikės įrašyti failo pavadinimą ir pasirinkti kokia strategija skaičiuoti.
-
-Pasirinkus kurti failą jūsų prašys failo dydį ir kiek pažymių turi kiekvienas studentas.
-
-## RAM naudojimas
-
-RAM naudojimas skaičiuojamas testuojant su failu, kuriame yra 10000000 studentų su 7 namų darbų pažymiais)
-
-1 Strategija - Saugoti studentams dviejuose naujuose konteineris (naudoja max 3.2 GB RAM)
-
-2 Strategija - Saugoti studentams sukuriamas vienas naujas konteineris (naudoja max 2.6 GB RAM)
-
-3 Strategija - Studentų saugojimui nesukuriamas joks naujas konteineris (naudoja max 2.2 GB RAM) 
 
 ## Programos greičiai
 

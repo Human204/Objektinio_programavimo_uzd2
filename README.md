@@ -39,6 +39,7 @@ RAM naudojimas skaičiuojamas testuojant su failu, kuriame yra 10000000 student�
 | Duomenų nuskaitymas             | 11.269    | 11.286    | 11.279    |
 | Studentų Rikiavimas             | 3.008     | 2.895     | 2.74103   |
 | Studentų skirstymas į dvi dalis | 0.0369983 | 0.0310036 | 0.0279997 |
+| exe failo dydžiai               | 162,974 baitai| 158,708 baitai| 168,825 baitai |
 
 ## Klasių ir struktūrų greičiai:
 

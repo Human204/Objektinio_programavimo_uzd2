@@ -156,20 +156,6 @@ void tipas3(vector <Studentasc> &studentai){
     t_dal.reset();
     vector<Studentasc>::size_type j = 0;
     vector<Studentasc>::iterator it =find_if(studentai.begin(),studentai.end(),paz_skirst);
-    // vector<Studentasc> cringe;
-    // int cringe_size=studentai.end()-it-1;
-    // int cringe_size=it-studentai.begin()-1;
-    // cringe.resize(cringe_size);
-    //partition dalis
-    // copy(studentai.begin(),it-1,cringe.begin());
-    // studentai.erase(studentai.begin(),it-1);
-    //partition dalis
-
-    //find dalis
-    // copy(it,studentai.end()-1,cringe.begin());
-    // studentai.erase(it,studentai.end());
-     //find dalis
-
     cout<<"Studentu suriusiavimas i 2 dalis uztruko: "<<t_dal.elapsed()<<endl;
     t_dal.reset();
     // out_failo_sukurimas(cringe,"cringe");

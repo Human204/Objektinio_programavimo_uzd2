@@ -3,6 +3,7 @@
 #include "ranka.h"
 #include "failai.h"
 #include "studentas.h"
+#include "skaiciavimai.h"
 
 int main(){
     srand(time(NULL));
@@ -86,8 +87,10 @@ int main(){
       catch(const std::exception &e){
         std::cerr<<e.what()<<endl;
       }
+      Timer t_vis;
       eilute<<fin.rdbuf();
-      Skaitymas(grupe,eilute);
+      cout<<t_vis.elapsed()<<endl;
+      Skaitymas(grupe,eilute,t_vis);
       fin.close();
     }
     else if(programos_tipas==3){

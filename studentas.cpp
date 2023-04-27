@@ -1,4 +1,80 @@
 #include "studentas.h"
+#include<iostream>
+Studentasc::Studentasc(const Studentasc &other){
+  this->vardas=other.vardas;
+  this->pavarde=other.pavarde;
+  this->egz=other.egz;
+  this->gal_vid=other.gal_vid;
+  this->galutinis2=other.galutinis2;
+  this->galutinis=other.galutinis;
+  this->med=other.med;
+  this->paz=other.paz;
+  this->vid=other.vid;
+}
+
+Studentasc& Studentasc::operator=(Studentasc &other){
+  if(this==&other){
+    return *this;
+  }
+  else{
+    this->vardas=other.vardas;
+    this->pavarde=other.pavarde;
+    this->egz=other.egz;
+    this->gal_vid=other.gal_vid;
+    this->galutinis2=other.galutinis2;
+    this->galutinis=other.galutinis;
+    this->med=other.med;
+    this->paz=other.paz;
+    this->vid=other.vid;
+    return *this;
+  }
+}
+
+Studentasc::Studentasc(Studentasc &&other){
+  // cout<<"movec\n";
+    vardas=other.vardas;
+    pavarde=other.pavarde;
+    egz=other.egz;
+    gal_vid=other.gal_vid;
+    galutinis2=other.galutinis2;
+    galutinis=other.galutinis;
+    med=other.med;
+    cout<<"1"<<endl;
+    // this->paz=other.paz;
+    if(other.paz.size()!=0)
+    paz=std::move(other.paz);
+    vid=other.vid;
+    cout<<"2\n";
+    // other.vardas=nullptr;
+    // other.pavarde=nullptr;
+    // other.paz.clear();
+    if(other.paz.size()!=0)paz=std::move(other.paz);
+    // delete &other;
+    cout<<"3\n";
+}
+
+Studentasc& Studentasc::operator=(Studentasc &&other){
+  // cout<<"move\n";
+  if(this==&other){
+    return *this;
+  }
+  else{
+    this->vardas=other.vardas;
+    this->pavarde=other.pavarde;
+    this->egz=other.egz;
+    this->gal_vid=other.gal_vid;
+    this->galutinis2=other.galutinis2;
+    this->galutinis=other.galutinis;
+    this->med=other.med;
+    if(other.paz.size()!=0)
+    this->paz=other.paz;
+    this->vid=other.vid;
+    // other.vardas=nullptr;
+    // other.pavarde=nullptr;
+    if(other.paz.size()!=0)this->paz=std::move(other.paz);
+    return *this;
+  }
+}
 
 vector<int>::iterator Studentasc::iterators(string &type){
     vector<int>::iterator it;
@@ -73,3 +149,9 @@ std::stringstream Studentasc::output_string(){
     str<<galutinis;
     return str;
 }
+
+ostream &operator<<(std::ostream &out, const Studentasc &to_print){
+  out<<to_print.vardas<<" "<<to_print.pavarde<<" "<<to_print.galutinis<<endl;
+  return out;
+}
+

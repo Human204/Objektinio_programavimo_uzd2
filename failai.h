@@ -2,13 +2,14 @@
 #define FAILAI_H
 #include "MyLib.h"
 #include "studentas.h"
+#include "skaiciavimai.h"
 struct stud{
     string vardas,pavarde;
     vector<int>pazymiai;
     int egzaminas;
 
 };
-void Skaitymas(vector<Studentasc> &temp,std::stringstream &temp2);
+void Skaitymas(vector<Studentasc> &temp,std::stringstream &temp2,Timer &t_vis);
 void outf(vector<Studentasc> &temp);
 void sukurtifaila(int filesize,int ndsk);
 void isskaidymas(vector<Studentasc> &studentai,int tipas);

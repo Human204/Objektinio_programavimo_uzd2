@@ -2,7 +2,7 @@
 #include "skaiciavimai.h"
 #include "failai.h"
 #include "studentas.h"
-void Skaitymas(vector<Studentasc> &temp,std::stringstream &temp2){
+void Skaitymas(vector<Studentasc> &temp,std::stringstream &temp2,Timer &t_vis){
   int tipas;
   cout<<"Kuria strategija naudoti?(1/2/3)";cin>>tipas;
   int temp_paz,l=0;
@@ -16,7 +16,7 @@ void Skaitymas(vector<Studentasc> &temp,std::stringstream &temp2){
       break;
     } 
   }
-  Timer t_failas,t_vis;
+  Timer t_failas;
   while(!temp2.eof()){
       Studentasc temp3(temp2,l);
       temp.push_back(temp3);

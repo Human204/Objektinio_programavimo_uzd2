@@ -3,6 +3,10 @@
 #include "MyLib.h"
 #include "studentas.h"
 
+
+/*!
+Laikrodis skirtas programos veikimo spartai apskaiciuoti
+*/
 class Timer {
 private:
 using hrClock = std::chrono::high_resolution_clock;
@@ -19,7 +23,9 @@ return durationDouble (hrClock::now() - start).count();
 };
 
 
-
+/*!
+palygintigalutinius ir palygintigalutiniusalt rusiuoja studentus pagal ju galutinius pazymius, taciau vienas kitam atvirksciai
+*/
 bool palygintivardus(Studentasc& a, Studentasc& b);
 bool palygintigalutinius(Studentasc& a,Studentasc& b);
 bool palygintigalutiniusalt(Studentasc& a,Studentasc& b);

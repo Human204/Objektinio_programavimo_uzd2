@@ -5,6 +5,11 @@
 #include "studentas.h"
 #include "skaiciavimai.h"
 
+/*!
+Programa skirta studentu galutinius balus suskaiciuoti, galimi ivedimai ranka arba is failo
+Setup instaliuos programa C:/ProgramFiles(x86)/Obj_p
+*/
+
 int main(){
     srand(time(NULL));
     int n=1,paz_sk,programos_tipas;

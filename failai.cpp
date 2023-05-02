@@ -151,25 +151,19 @@ void tipas2(vector <Studentasc> &studentai){
 void tipas3(vector <Studentasc> &studentai){
     Timer t_dal;
   sort(studentai.begin(),studentai.end()-1,palygintigalutiniusalt);
-  // vector<Studentasc>::iterator it=partition(studentai.begin(),studentai.end(),partition);
     cout<<"Studentu rikiavimas uztruko: "<<t_dal.elapsed()<<endl;
     t_dal.reset();
     vector<Studentasc>::size_type j = 0;
     vector<Studentasc>::iterator it =find_if(studentai.begin(),studentai.end(),paz_skirst);
     cout<<"Studentu suriusiavimas i 2 dalis uztruko: "<<t_dal.elapsed()<<endl;
     t_dal.reset();
-    // out_failo_sukurimas(cringe,"cringe");
     out_failo_sukurimas3(studentai,"cringe",it);
-    // cringe.clear();
     out_failo_sukurimas3(studentai,"based",it);
     studentai.clear();
 
 }
 bool paz_skirst(Studentasc &temp){
   return((temp.getGal()==5.0));
-}
-bool partition(Studentasc &temp){
-  return(temp.getGal()<5);
 }
 
 void out_failo_sukurimas3(vector<Studentasc> &temp,string tipas,vector<Studentasc>::iterator it){

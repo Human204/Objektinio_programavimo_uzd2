@@ -11,7 +11,8 @@
 #include<random>
 #include <chrono>
 
-
+/*!
+Sis failas skirtas ivairiem include reikalingiem programoje*/
 using std::cin;
 using std::copy;
 using std::cout;

@@ -36,3 +36,8 @@ dest.txt
 main(masyvai).cpp
 *.txt
 ObjektinioProgramavimo_uzd.code-workspace
+program.iss
+./Setup
+Setup
+latex
+html

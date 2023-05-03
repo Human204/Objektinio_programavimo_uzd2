@@ -27,7 +27,7 @@ TEST_CASE("failu skaitymas","[failai]"){
     std::stringstream input("1");
     std::streambuf* orig_cin_buf = std::cin.rdbuf();
     std::cin.rdbuf(input.rdbuf());
-    ifstream fin("Stud1000000.txt");
+    ifstream fin("Stud10.txt");
     std::stringstream read;
     read<<fin.rdbuf();
     fin.close();

@@ -1,4 +1,4 @@
-# ObjektinioProgramavimo_uzd
+ # ObjektinioProgramavimo_uzd
 ## Sistemos specifikacijos:
 * CPU: Intel core i5 10400f 2.9GHz
 
@@ -11,7 +11,9 @@ SEQ1MQ8T1 Read: 1939.59 MB/s
 SEQ1MQ8T1 Write: 658.69 MB/s
 
 ## Instaliacijos instrukcijos
-Kartu su programa ateina makefile, exe failo sukūrimui įrašykite make, jo paleidimui make run.
+Kartu su programa ateina makefile, exe failo sukūrimui įrašykite make, jo paleidimui make run, norint instaliuoti testus paleiskite komandą make test.
+
+Taip pat prie release įdėtas setup, kuris instaliuos programą kaip Obj_p, norint kurti ar skaityti failus, tą programą reiks paleisti administratoriaus privilegijomis.
 
 ## Naudojimosi instrukcija
 Paleidus programą gausite pasirinkimą įrašyti studentus bei jų pažymius ranka, nuskaityti juos iš failo, ar sugeneruoti naują atsitiktinų pažymių ir studentų failą testuoti programos greičiui.
@@ -21,6 +23,10 @@ Pasirinkus rašyti pažymius ranka galėsite pasirinkti galutinį pažymį skai�
 Pasirinkus skaityti pažymius iš failo reikės įrašyti failo pavadinimą ir pasirinkti kokia strategija skaičiuoti.
 
 Pasirinkus kurti failą jūsų prašys failo dydį ir kiek pažymių turi kiekvienas studentas.
+
+## Doxygen
+
+Šioje repozitorijoje taip pat rasite Doxyfile failą, jį paleidus, (komanda doxygen) bus sugeneruotas projekto aprašas, aprašantis naudojamas klases.
 
 ## RAM naudojimas
 

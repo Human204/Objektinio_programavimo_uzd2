@@ -131,7 +131,7 @@ void tipas2(vector <Studentasc> &studentai){
     vector<Studentasc> cringe;
     cringe.reserve(studentai.size()*0.7);
     vector<Studentasc>::size_type j = 0;
-    for(int i=studentai.size();i>=0;i--){
+    for(int i=studentai.size()-1;i>=0;i--){
       if(studentai[i].getGal()<5){
         cringe.push_back(studentai[i]);
         studentai.pop_back();

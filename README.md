@@ -56,3 +56,4 @@ naudojamas 100000 studentų dydžio failas naudojant 1 strategiją:
 | Duomenų nuskaitymas             | 0.104501  | 0.109981  |
 | Studentų Rikiavimas             | 0.0169989 | 0.0420322 |
 | Studentų skirstymas į dvi dalis | 0.0045019 |0.010967   |
+|Perskirstymų sk. (10000000)      |25 |25|
